@@ -28,8 +28,8 @@ def convert_annotation(image_id):
         xmlbox = obj.find('bndbox')
         b = (int(xmlbox.find('xmin').text), int(xmlbox.find('xmax').text), int(
             xmlbox.find('ymin').text), int(xmlbox.find('ymax').text))
-        
-        out_file.write('{0} {1} {2} {3} {4}\n'.format(classe, b[0], b[1], b[2], b[3]))
+        # class_name, left, top, right, bottom, _difficult = line.split()
+        out_file.write('{0} {1} {2} {3} {4}\n'.format(classe, b[0], b[2], b[1], b[3]))
     out_file.close()
 	
 

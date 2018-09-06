@@ -395,6 +395,8 @@ for class_index, class_name in enumerate(gt_classes):
     for line in lines:
       try:
         tmp_class_name, confidence, left, top, right, bottom = line.split()
+        right = str(int(left) + int(right))
+        bottom = str(int(top) + int(bottom))
       except ValueError:
         error_msg = "Error: File " + txt_file + " in the wrong format.\n"
         error_msg += " Expected: <class_name> <confidence> <left> <top> <right> <bottom>\n"
